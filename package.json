@@ -4,7 +4,7 @@
     "three": "^0.126.0"
   },
   "scripts": {
-    "build": "webpack --mode=development",
+    "build": "webpack --mode=development && cp public/index.html build/index.html",
     "dev": "webpack serve --mode=development --https"
   },
   "devDependencies": {
