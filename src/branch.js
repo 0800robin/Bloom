@@ -13,8 +13,8 @@ export class Branch extends THREE.Object3D {
         this.timer = 0;
         this.lifespan = lifespan;
 
-        this.scalar = 0;
-        this.growthRate = 0.01;
+        this.scalar = new THREE.Vector3(1, 0, 1);
+        this.growthRate = new THREE.Vector3(0, 0.01, 0);
         
         this.geometry = new THREE.BoxGeometry(0.1, height, 0.1);
         this.geometry.translate(0, height / 2, 0);
@@ -23,15 +23,16 @@ export class Branch extends THREE.Object3D {
         this.mesh.position.copy(pos);
         this.mesh.rotation.copy(rotation);
 
-        this.mesh.scale.setScalar(0);
+        this.mesh.scale.copy(this.scalar);
     }
 
     grow() {
         this.timer += 1;
 
         if(!this.fullyGrown() && this.isGrowing) {
-            this.scalar += this.growthRate;
-            this.mesh.scale.setScalar(this.scalar);
+            this.scalar.add(this.growthRate)
+            this.mesh.scale.copy(this.scalar);
+            
         }
     }
 
