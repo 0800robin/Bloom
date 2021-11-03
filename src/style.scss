@@ -1,0 +1,35 @@
+$background: #efefef;
+
+body {
+    background-color: $background;
+    margin: 0;
+}
+
+body.ar #intro {
+    display: none;
+}
+
+body.show-slam {
+    #slam-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        #slam-img {
+            display: block;
+        }
+    }
+}
+
+#slam-img {
+    width: 66vw;
+    display: none;
+}
+
+#intro {
+    background: white;
+    padding: 32px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 12px;
+}
